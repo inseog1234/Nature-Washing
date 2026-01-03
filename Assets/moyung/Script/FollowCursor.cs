@@ -2,12 +2,25 @@
 
 public class FollowCursor : MonoBehaviour
 {
-    [SerializeField] Texture2D cursorImg;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    Camera cam;
+    Rigidbody2D rb;
+
+    void Awake()
     {
-        Cursor.SetCursor(cursorImg, Vector2.zero, CursorMode.Auto);
+        Cursor.visible = false;
+        if (Cursor.visible == false) Debug.Log("커서 사라짐");
+        cam = Camera.main;
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    
+    void Start()
+    {
+        
+    }
+
+    void FixedUpdate()
+    {
+        Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        rb.MovePosition(mousePos);
+    }
 }

@@ -70,4 +70,10 @@ public class FadeEffect : MonoBehaviour
             yield return null;
         }
     }
+    
+    public float Get_dd()
+    {
+        return fadeTime;
+    }
+
 }

@@ -36,6 +36,7 @@ public class MoveCamera : MonoBehaviour
         fadeEffect.OnFade(FadeState.FadeInOut);
 
         cameraIdx = (cameraIdx - 1 + cameras.Length) % cameras.Length;
+
         SetCamera(cameraIdx);
 
         StartCoroutine(Delay(1f));
